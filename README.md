@@ -2,6 +2,8 @@
 
 A community modification of the [duckyPad Configurator](https://github.com/dekuNukem/duckyPad) that adds a **Health Reminders** system. Your duckyPad lights up on a schedule to remind you to take eye breaks, drink water, stretch, stand up, take meds, and more — all configurable from inside the app.
 
+This repo contains **only the modified and new files**. You will need the original duckyPad Configurator from [dekuNukem/duckyPad](https://github.com/dekuNukem/duckyPad) as the base.
+
 ---
 
 ## ⚠️ Disclaimer — Please Read
@@ -43,35 +45,56 @@ You can also add custom reminders with any name, color, interval, and title/subt
 
 ---
 
-## Installation
+## Files in This Repo
 
-This mod patches the duckyPad Configurator Python source. You need a working Python environment and the original configurator dependencies.
+| File | Description |
+|---|---|
+| `duckyPad-Configurator/src/duckypad_config.py` | Modified main configurator app with health reminders panel added |
+| `duckyPad-Configurator/src/health_reminders.txt` | Default reminder config — copy this to your duckyPad's SD card root |
+
+All other files needed to run the configurator come from the [original upstream repo](https://github.com/dekuNukem/duckyPad).
+
+---
+
+## Installation
 
 ### Requirements
 
-- Python 3.10 or later (tested on 3.14)
-- The dependencies listed in `duckyPad-Configurator/src/requirements.txt`
-- A duckyPad device (any version supported by the upstream configurator)
+- Python 3.10 or later
+- Git
+- A duckyPad device
 
 ### Steps
 
-1. **Clone this repo**
+1. **Clone the original duckyPad Configurator**
    ```bash
-   git clone https://github.com/tjproconsulting/duckypad-health-reminders.git
-   cd duckypad-health-reminders
+   git clone https://github.com/dekuNukem/duckyPad.git
+   cd duckyPad
    ```
 
 2. **Install dependencies**
    ```bash
-   pip install -r duckyPad-Configurator/src/requirements.txt
+   pip install -r pc_software/duckyPad-Configurator/src/requirements.txt
    ```
 
-3. **Run the configurator**
+3. **Download this mod's modified file**
    ```bash
-   python duckyPad-Configurator/src/duckypad_config.py
+   curl -o pc_software/duckyPad-Configurator/src/duckypad_config.py \
+     https://raw.githubusercontent.com/tjproconsulting/duckypad-health-reminders/main/duckyPad-Configurator/src/duckypad_config.py
    ```
 
-4. **Configure your reminders**
+   Or manually: download `duckypad_config.py` from this repo and replace the one at `pc_software/duckyPad-Configurator/src/duckypad_config.py` in your cloned upstream folder.
+
+4. **Copy the default health reminders config to your duckyPad's SD card**
+
+   Download `duckyPad-Configurator/src/health_reminders.txt` from this repo and copy it to the **root of your duckyPad's SD card**.
+
+5. **Run the configurator**
+   ```bash
+   python pc_software/duckyPad-Configurator/src/duckypad_config.py
+   ```
+
+6. **Configure your reminders**
    - Connect your duckyPad
    - Click **"Health Reminders"** in the Resources section
    - Set your intervals, colors, and key shapes
@@ -95,6 +118,15 @@ meds     1 240  180   0 255
 ```
 
 You can edit this file directly or use the in-app editor.
+
+---
+
+## Keeping Up to Date with Upstream
+
+Because this repo only contains modified files, updating is straightforward:
+
+1. Pull the latest upstream changes: `git -C duckyPad pull`
+2. Re-apply this mod by replacing `duckypad_config.py` with the version from this repo (step 3 above)
 
 ---
 

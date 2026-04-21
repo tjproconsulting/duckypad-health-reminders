@@ -1,7 +1,0 @@
-platformdirs
-hidapi
-psutil
-pyinstaller
-requests
-darkdetect
-certifi
