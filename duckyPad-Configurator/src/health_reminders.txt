@@ -1,0 +1,8 @@
+# Health Reminders Config
+# FORMAT: key enabled(0/1) interval_minutes R G B
+eyes 1 20 255 180 0
+stretch 1 30 0 220 80
+water 1 45 0 120 255
+stand 1 60 255 60 180
+meds 1 240 180 0 255
+reminder6 1 30 255 255 255
